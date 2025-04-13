@@ -53,13 +53,14 @@ const createSignUpForm = (page: Page): SignUpForm => {
   const getSignInLink = page.getByRole("link", { name: "Have an account? Sign In" });
 
   return {
-    fillFirstNameInput: (firstName: string) => getFirstNameInput.fill(firstName),
-    fillLastNameInput: (lastName: string) => getLastNameInput.fill(lastName),
-    fillUserNameInput: (username: string) => getUserNameField.fill(username),
-    fillPasswordInput: (password: string) => getPasswordField.fill(password),
-    fillConfirmPasswordInput: (password: string) => getConfirmPasswordField.fill(password),
-    clickSignUpButton: () => getSignUpButton.click(),
-    clickSignInLink: () => getSignInLink.click(),
+    fillFirstNameInput: async (firstName: string) => await getFirstNameInput.fill(firstName),
+    fillLastNameInput: async (lastName: string) => await getLastNameInput.fill(lastName),
+    fillUserNameInput: async (username: string) => await getUserNameField.fill(username),
+    fillPasswordInput: async (password: string) => await getPasswordField.fill(password),
+    fillConfirmPasswordInput: async (password: string) =>
+      await getConfirmPasswordField.fill(password),
+    clickSignUpButton: async () => await getSignUpButton.click(),
+    clickSignInLink: async () => await getSignInLink.click(),
 
     getFirstNameField,
     getLastNameField,

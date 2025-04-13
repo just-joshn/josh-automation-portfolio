@@ -27,11 +27,11 @@ const createSignInForm = (page: Page): SignInForm => {
   const getSignUpLink = page.getByTestId("signup");
 
   return {
-    fillUserNameInput: (username: string) => getUserNameInput.fill(username),
-    fillPasswordInput: (password: string) => getPasswordInput.fill(password),
-    checkRememberMe: () => getRememberMeCheckbox.check(),
-    clickSignInButton: () => getSignInButton.click(),
-    clickSignUpLink: () => getSignUpLink.click(),
+    fillUserNameInput: async (username: string) => await getUserNameInput.fill(username),
+    fillPasswordInput: async (password: string) => await getPasswordInput.fill(password),
+    checkRememberMe: async () => await getRememberMeCheckbox.check(),
+    clickSignInButton: async () => await getSignInButton.click(),
+    clickSignUpLink: async () => await getSignUpLink.click(),
 
     getUserNameField,
     getPasswordField,
