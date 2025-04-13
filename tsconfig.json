@@ -23,6 +23,7 @@
     "scripts",
     "backend",
     "src/__tests__",
-    "src/utils/portUtils.ts"
+    "src/utils/portUtils.ts",
+    "playwright.config.ts"
   ]
 }
