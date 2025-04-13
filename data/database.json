@@ -74,17 +74,6 @@
       "balance": 49474,
       "createdAt": "2023-12-07T04:39:38.383Z",
       "modifiedAt": "2024-03-07T00:07:36.510Z"
-    },
-    {
-      "id": "Kkgib-TSv",
-      "uuid": "31f63adc-151a-48a6-8e1d-b7f99cea36f3",
-      "firstName": "FirstName",
-      "lastName": "LastName",
-      "username": "testuser",
-      "password": "$2a$10$hi7Tps3FcN/ePok3D40hdObUvK5sB0iLrCIIzUtO7LoI5eUV9vIW2",
-      "balance": 0,
-      "createdAt": "2025-04-13T06:24:48.082Z",
-      "modifiedAt": "2025-04-13T06:24:48.082Z"
     }
   ],
   "contacts": [
