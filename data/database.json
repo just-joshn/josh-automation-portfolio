@@ -74,6 +74,17 @@
       "balance": 49474,
       "createdAt": "2023-12-07T04:39:38.383Z",
       "modifiedAt": "2024-03-07T00:07:36.510Z"
+    },
+    {
+      "id": "-GLPjAYCd",
+      "uuid": "08d34df4-eae7-41be-9b47-8d74d3b3d633",
+      "firstName": "Josh",
+      "lastName": "Humphrey",
+      "username": "Josh",
+      "password": "$2a$10$DcanB5TtRpKOcNkx/prP1ucMmNSDcQwFkblA0HrZ.PNavA1g9pcye",
+      "balance": 0,
+      "createdAt": "2025-04-13T03:36:56.138Z",
+      "modifiedAt": "2025-04-13T03:36:56.138Z"
     }
   ],
   "contacts": [
@@ -253,6 +264,17 @@
       "isDeleted": false,
       "createdAt": "2024-01-26T14:01:01.815Z",
       "modifiedAt": "2024-03-07T08:44:31.174Z"
+    },
+    {
+      "id": "MHRVO26eU",
+      "uuid": "83144278-5a2c-4a65-9c75-6eb42fce59af",
+      "userId": "-GLPjAYCd",
+      "bankName": "BankOfJosh",
+      "accountNumber": "123451234",
+      "routingNumber": "123451234",
+      "isDeleted": true,
+      "createdAt": "2025-04-13T03:38:43.388Z",
+      "modifiedAt": "2025-04-13T03:38:43.388Z"
     }
   ],
   "transactions": [
