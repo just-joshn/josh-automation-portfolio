@@ -1,18 +1,18 @@
-import type { Page, Response } from "@playwright/test";
+import type { Page } from "@playwright/test";
 
 interface PagePaths {
-  signInPage: () => Promise<null | Response>;
-  signUpPage: () => Promise<null | Response>;
+  signInPage: () => Promise<void>;
+  signUpPage: () => Promise<void>;
 }
 
-const createPagePaths = (page: Page): PagePaths => {
-  const getSignInPath = "/signin";
-  const getSignUpPath = "/signup";
+const createPagePaths = (page: Page): PagePaths => ({
+  signInPage: async () => {
+    await page.goto("/signin");
+  },
 
-  return {
-    signInPage: async () => await page.goto(getSignInPath),
-    signUpPage: async () => await page.goto(getSignUpPath),
-  };
-};
+  signUpPage: async () => {
+    await page.goto("/signup");
+  },
+});
 
 export default createPagePaths;

@@ -1,11 +1,11 @@
 import type { Locator, Page } from "@playwright/test";
 
 interface SignInForm {
-  fillUserNameInput: (username: string) => void;
-  fillPasswordInput: (password: string) => void;
-  checkRememberMe: () => void;
-  clickSignInButton: () => void;
-  clickSignUpLink: () => void;
+  fillUserNameInput: (username: string) => Promise<void>;
+  fillPasswordInput: (password: string) => Promise<void>;
+  checkRememberMe: () => Promise<void>;
+  clickSignInButton: () => Promise<void>;
+  clickSignUpLink: () => Promise<void>;
   getUserNameField: Locator;
   getPasswordField: Locator;
   getUserNameInput: Locator;
@@ -27,11 +27,25 @@ const createSignInForm = (page: Page): SignInForm => {
   const getSignUpLink = page.getByTestId("signup");
 
   return {
-    fillUserNameInput: async (username: string) => await getUserNameInput.fill(username),
-    fillPasswordInput: async (password: string) => await getPasswordInput.fill(password),
-    checkRememberMe: async () => await getRememberMeCheckbox.check(),
-    clickSignInButton: async () => await getSignInButton.click(),
-    clickSignUpLink: async () => await getSignUpLink.click(),
+    fillUserNameInput: async (username: string) => {
+      await getUserNameInput.fill(username);
+    },
+
+    fillPasswordInput: async (password: string) => {
+      await getPasswordInput.fill(password);
+    },
+
+    checkRememberMe: async () => {
+      await getRememberMeCheckbox.check();
+    },
+
+    clickSignInButton: async () => {
+      await getSignInButton.click();
+    },
+
+    clickSignUpLink: async () => {
+      await getSignUpLink.click();
+    },
 
     getUserNameField,
     getPasswordField,

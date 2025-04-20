@@ -1,13 +1,13 @@
 import type { Locator, Page } from "@playwright/test";
 
 interface SignUpForm {
-  fillFirstNameInput: (firstName: string) => void;
-  fillLastNameInput: (lastName: string) => void;
-  fillUserNameInput: (username: string) => void;
-  fillPasswordInput: (password: string) => void;
-  fillConfirmPasswordInput: (password: string) => void;
-  clickSignUpButton: () => void;
-  clickSignInLink: () => void;
+  fillFirstNameInput: (firstName: string) => Promise<void>;
+  fillLastNameInput: (lastName: string) => Promise<void>;
+  fillUserNameInput: (username: string) => Promise<void>;
+  fillPasswordInput: (password: string) => Promise<void>;
+  fillConfirmPasswordInput: (password: string) => Promise<void>;
+  clickSignUpButton: () => Promise<void>;
+  clickSignInLink: () => Promise<void>;
   getFirstNameField: Locator;
   getLastNameField: Locator;
   getUserNameField: Locator;
@@ -53,14 +53,33 @@ const createSignUpForm = (page: Page): SignUpForm => {
   const getSignInLink = page.getByRole("link", { name: "Have an account? Sign In" });
 
   return {
-    fillFirstNameInput: async (firstName: string) => await getFirstNameInput.fill(firstName),
-    fillLastNameInput: async (lastName: string) => await getLastNameInput.fill(lastName),
-    fillUserNameInput: async (username: string) => await getUserNameField.fill(username),
-    fillPasswordInput: async (password: string) => await getPasswordField.fill(password),
-    fillConfirmPasswordInput: async (password: string) =>
-      await getConfirmPasswordField.fill(password),
-    clickSignUpButton: async () => await getSignUpButton.click(),
-    clickSignInLink: async () => await getSignInLink.click(),
+    fillFirstNameInput: async (firstName: string) => {
+      await getFirstNameInput.fill(firstName);
+    },
+
+    fillLastNameInput: async (lastName: string) => {
+      await getLastNameInput.fill(lastName);
+    },
+
+    fillUserNameInput: async (username: string) => {
+      await getUserNameField.fill(username);
+    },
+
+    fillPasswordInput: async (password: string) => {
+      await getPasswordField.fill(password);
+    },
+
+    fillConfirmPasswordInput: async (password: string) => {
+      await getConfirmPasswordField.fill(password);
+    },
+
+    clickSignUpButton: async () => {
+      await getSignUpButton.click();
+    },
+
+    clickSignInLink: async () => {
+      await getSignInLink.click();
+    },
 
     getFirstNameField,
     getLastNameField,
