@@ -3,7 +3,7 @@ import type { Locator, Page } from "@playwright/test";
 interface SignInForm {
   fillUserNameInput: (username: string) => Promise<void>;
   fillPasswordInput: (password: string) => Promise<void>;
-  checkRememberMe: () => Promise<void>;
+  checkRememberMe: (setChecked: boolean) => Promise<void>;
   clickSignInButton: () => Promise<void>;
   clickSignUpLink: () => Promise<void>;
   getUserNameField: Locator;
@@ -22,7 +22,7 @@ const createSignInForm = (page: Page): SignInForm => {
   const getUserNameFieldRequiredError = getUserNameField.getByText("Username is required");
   const getUserNameInput = getUserNameField.getByRole("textbox");
   const getPasswordInput = getPasswordField.getByRole("textbox");
-  const getRememberMeCheckbox = page.getByTestId("signin-remember-me");
+  const getRememberMeCheckbox = page.getByTestId("signin-remember-me").getByRole("checkbox");
   const getSignInButton = page.getByTestId("signin-submit");
   const getSignUpLink = page.getByTestId("signup");
 
@@ -35,8 +35,8 @@ const createSignInForm = (page: Page): SignInForm => {
       await getPasswordInput.fill(password);
     },
 
-    checkRememberMe: async () => {
-      await getRememberMeCheckbox.check();
+    checkRememberMe: async (setChecked: boolean) => {
+      await getRememberMeCheckbox.setChecked(setChecked);
     },
 
     clickSignInButton: async () => {
