@@ -2,8 +2,8 @@ import { Factory } from "fishery";
 import { DefaultPrivacyLevel, type User } from "../../../src/models/user";
 import { fakerEN_US as faker } from "@faker-js/faker";
 
-export const userFactory = Factory.define<User>(() => ({
-  id: faker.string.alphanumeric(10),
+export const userFactory = Factory.define<User>(({ sequence }) => ({
+  id: `${sequence}`,
   uuid: faker.string.uuid(),
   firstName: faker.person.firstName(),
   lastName: faker.person.lastName(),
