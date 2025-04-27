@@ -2,7 +2,7 @@ import { Factory } from "fishery";
 import { DefaultPrivacyLevel, type User } from "../../../src/models/user";
 import { fakerEN_US as faker } from "@faker-js/faker";
 
-export const userFactory = Factory.define<User>(({ sequence }) => ({
+const usersFactory = Factory.define<User>(({ sequence }) => ({
   id: `${sequence}`,
   uuid: faker.string.uuid(),
   firstName: faker.person.firstName(),
@@ -17,3 +17,5 @@ export const userFactory = Factory.define<User>(({ sequence }) => ({
   createdAt: faker.date.recent(),
   modifiedAt: faker.date.recent(),
 }));
+
+export default usersFactory;

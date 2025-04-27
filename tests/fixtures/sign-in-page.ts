@@ -1,9 +1,9 @@
 import { test as base, Page, expect } from "@playwright/test";
 import createPagePaths from "../paths/paths";
 
-interface SignInPageFixtures {
+type SignInPageFixtures = {
   signInPage: Page;
-}
+};
 
 export const test = base.extend<SignInPageFixtures>({
   signInPage: async ({ page }, use) => {
